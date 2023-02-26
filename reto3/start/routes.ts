@@ -29,9 +29,15 @@ Route.group(() => {
   Route.post('/login','AuthController.login')
 
   Route.group(() => {
-    Route.get('books','BooksController.index')
-    Route.get('books/:id','BooksController.show')
-    Route.put('books/update/:id','BooksController.update')
-    Route.post('books','BooksController.store')
+    Route.get('/books','BooksController.index')
+    Route.get('/books/:id','BooksController.show')
+    Route.put('/books/update/:id','BooksController.update')
+    Route.post('/books','BooksController.store')
+    Route.delete('/books/delete/:id','BooksController.eliminarLibro')
+
+    Route.get('/listarUsuarios','AuthController.listarTodo')
+    Route.get('/listarUsuarios/:id','AuthController.listarId')
+    Route.put('/editarUsuario/:id','AuthController.editarUsuario')
+    Route.delete('/eliminarUsuario','AuthController.eliminarUsuario')
   }).middleware('auth')
 }).prefix('api')
